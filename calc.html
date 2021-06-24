@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>AKTU B.tech marksheet score calculator</h1>
+<p>Select Admission type in B.Tech from below</p>
+
+<select id="mySelect" onchange="myFunction()">
+  <option value="fresh">Fresh Entry</option>
+  <option value="lateral">Lateral Entry</option>
+</select>
+<table border="5" style="width:50%;text-align:center">
+  <tr>
+    <th>Year</th>
+    <th>Marks Gain</th> 
+    <th>Maximum Mark</th>
+  </tr>
+  <tr>
+    <td>1st</td>
+    <td><input type="text" id="m1"></td>
+    <td><input type="text" id="mm1"></td>
+  </tr>
+  <tr>
+    <td>2nd</td>
+    <td><input type="text" id="m2"></td>
+    <td><input type="text" id="mm2"></td>
+  </tr>
+  <tr>
+    <td>3rd</td>
+    <td><input type="text" id="m3"></td>
+    <td><input type="text" id="mm3"></td>
+  </tr>
+  <tr>
+    <td>Final</td>
+    <td><input type="text" id="m4"></td>
+    <td><input type="text" id="mm4"></td>
+  </tr>
+</table>
+<input type="button" value="calculate" onclick="calculate()">
+<p id="calc"></p>
+<p>*****Note=NaN:It indicate not a number in case of empty record or string value</p>
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  if (x=="lateral"){
+  document.getElementById("m1").disabled = true;
+  document.getElementById("mm1").disabled = true;
+  }
+  else{
+  document.getElementById("m1").disabled = false;
+  document.getElementById("mm1").disabled = false;
+  }
+}
+</script>
+
+<script>
+function calculate(){
+var x = document.getElementById("mySelect").value;
+  if (x=="lateral"){
+  var m1=0;
+  var mm1=0;
+  }
+  else {
+  var m1=parseInt(document.getElementById("m1").value);
+  var mm1=parseInt(document.getElementById("mm1").value);
+  }
+  var m2=parseInt(document.getElementById("m2").value);
+  var mm2=parseInt(document.getElementById("mm2").value);
+  var m3=parseInt(document.getElementById("m3").value);
+  var mm3=parseInt(document.getElementById("mm3").value);
+  var m4=parseInt(document.getElementById("m4").value);
+  var mm4=parseInt(document.getElementById("mm4").value);
+  var total=(m1/4)+(m2/2)+(m3*3/4)+m4;
+  var maxmarks=(mm1/4)+(mm2/2)+(mm3*3/4)+mm4;
+  document.getElementById("calc").innerHTML = (total/maxmarks)*100+"%";
+}
+</script>
+
+</body>
+</html>
