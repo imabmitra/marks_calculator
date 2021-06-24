@@ -40,6 +40,8 @@
 <p id="calc"></p>
 <p>*****Note=NaN:It indicate not a number in case of empty record or string value</p>
 <script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  el_down.innerHTML = "Right click disabled";
 function myFunction() {
   var x = document.getElementById("mySelect").value;
   if (x=="lateral"){
